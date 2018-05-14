@@ -28,6 +28,6 @@ args_security=
 trueValue="true"
 [ -n "$skip_ssl_verification" ] && [ "${skip_ssl_verification,,}" = "${trueValue,,}" ] && args_security="$args_security -k";
 
-final_url=$(echo "$args_security" " $url")
+final_url=$(echo "$args_security" " $url" | sed "s/^[ \t\n\r]*//")
 
 check_version "$final_url" >&3
